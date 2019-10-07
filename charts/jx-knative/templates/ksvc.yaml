@@ -13,6 +13,10 @@ spec:
   runLatest:
     configuration:
       revisionTemplate:
+        metadata:
+          annotations:
+            autoscaling.knative.dev/target: "3"
+            autoscaling.knative.dev/maxScale: "5"
         spec:
           container:
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
